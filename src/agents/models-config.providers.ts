@@ -540,7 +540,7 @@ export async function resolveImplicitProviders(params: {
 
   // Baseten provider - supports many open source models via OpenAI-compatible API
   const basetenKey =
-    resolveEnvApiKeyVarName("baseten") ??
+    resolveEnvApiKey("baseten")?.apiKey ??
     resolveApiKeyFromProfiles({ provider: "baseten", store: authStore });
   if (basetenKey) {
     providers.baseten = { ...buildBasetenProvider(), apiKey: basetenKey };
